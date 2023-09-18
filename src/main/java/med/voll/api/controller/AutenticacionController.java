@@ -27,7 +27,7 @@ public class AutenticacionController {
     private TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity autenticarUsuario(@RequestBody @Valid DatosAutenticacionUsuario datosAutenticacionUsuario){
+    public ResponseEntity<DatosJWTToken> autenticarUsuario(@RequestBody @Valid DatosAutenticacionUsuario datosAutenticacionUsuario){
         Authentication authenticationToken = new UsernamePasswordAuthenticationToken(datosAutenticacionUsuario.login(), datosAutenticacionUsuario.clave());
         var usuarioAutenticado = authenticationManager.authenticate(authenticationToken);
         var JWTToken = tokenService.generarToken((Usuario) usuarioAutenticado.getPrincipal());
