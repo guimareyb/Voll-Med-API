@@ -1,0 +1,1 @@
+alter table vollmed_api.consultas add motivo_cancelamiento  varchar(100);
