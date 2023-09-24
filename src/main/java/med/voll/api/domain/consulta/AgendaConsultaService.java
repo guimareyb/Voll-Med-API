@@ -50,7 +50,7 @@ public class AgendaConsultaService {
     }
 
     private Medico seleccionarMedico(DatosAgendarConsulta datos) {
-        if (datos.id() != null){
+        if (datos.idMedico() != null){
             return medicoRepository.getReferenceById(datos.idMedico());
         }
         if (datos.especialidad() == null){
